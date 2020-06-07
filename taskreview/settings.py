@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '=nh*!@kfz%e$0=$xl-ks-i44n$j0%v
 #DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://quiet-basin-15744.herokuapp.com/', '127.0.0.1']
 
 
 # Application definition
