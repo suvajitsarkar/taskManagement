@@ -24,10 +24,10 @@ SECRET_KEY = '=nh*!@kfz%e$0=$xl-ks-i44n$j0%vzx_yoiz*trk^9%ucq02_'
 #SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '=nh*!@kfz%e$0=$xl-ks-i44n$j0%vzx_yoiz*trk^9%ucq02_')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 #DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['quiet-basin-15744.herokuapp.com/', '127.0.0.1']
+ALLOWED_HOSTS = ['https://quiet-basin-15744.herokuapp.com/']
 #ALLOWED_HOSTS = []
 
 
