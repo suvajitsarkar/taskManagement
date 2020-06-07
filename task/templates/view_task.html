@@ -1,0 +1,49 @@
+{% extends "base_layout.html" %}
+
+{% block content %}
+<h1>Tasks</h1>
+<table>
+    {% csrf_token %}
+    <th>Task Name</th>
+    <th>Created By</th>
+    <th>Added At</th>
+    <th>Description</th>
+    <th>Stage</th>
+    {% if perms.task.is_emp %}
+    <th>Action</th>
+    {% endif %}
+    {% if perms.task.is_lead %}
+    <th>Updated By</th>
+    {% endif %}
+    {% for d in data %}
+        <tr>
+            <td>
+                {{d.task_name}}
+            </td>
+            <td>
+                {{d.created_by.get_full_name}}
+            </td>
+            <td>
+                {{d.added_at}}
+            </td>
+            <td>
+                {{d.description}}
+            </td>
+            <td>
+                {{d.stage_value}}
+            </td>
+            {% if perms.task.is_emp %}
+            <td>
+                <a href="{{d.id}}/update">Update task</a>
+            </td>
+            {% endif %}
+            {% if perms.task.is_lead %}
+            <td>
+                <a href="view/{{d.id}}">Check</a>
+            </td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+

@@ -1,0 +1,10 @@
+{% extends "base_layout.html" %}
+
+{% block content %}
+<h1>Change task status</h1>
+<form action="" method="post">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Submit" />
+</form>
+{% endblock %}

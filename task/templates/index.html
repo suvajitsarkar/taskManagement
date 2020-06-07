@@ -1,0 +1,36 @@
+{% extends "base_layout.html" %}
+
+{% block content %}
+<h1>Task Review Home</h1>
+
+<p>Welcome to <em>Task Review System website</em></p>
+Total Number of tasks:- <label id="total_task"></label>
+{% csrf_token %}
+<script type="text/javascript">
+    v1 = 1;
+    setInterval(update, 1000);
+    function update() {
+        $.ajax({
+        url: '{% url 'get_data' %}',
+        data: {
+        },
+        dataType: 'json',
+        success: function(data)
+        {
+            console.log(data);
+            document.getElementById("total_task").innerHTML = data.data;
+        },
+        error: function(data)
+        {
+            console.log("error");
+        }
+        });
+    }
+</script>
+<br>
+<a href="view_tasks">Tasks</a>
+{% if perms.task.is_lead %}
+    <br>
+    <a href="create">Create Task</a>
+{% endif %}
+{% endblock %}
